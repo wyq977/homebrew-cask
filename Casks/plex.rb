@@ -1,12 +1,16 @@
 cask "plex" do
-  version "1.28.0.1681-cc6e807c"
-  sha256 "2c17f65bfab67fbc3cd577843a0eb73628f67da7498bc7347a263ad37abe3f64"
+  version "1.35.1.2632-c6783c78"
+  sha256 "f17ba81615aa55825b52ac0993479c5adcf0daa45fe9e7a20333cab2a531b992"
 
   url "https://downloads.plex.tv/plex-desktop/#{version}/macos/Plex-#{version}-x86_64.zip"
-  appcast "https://plex.tv/api/downloads/6.json"
   name "Plex"
-  desc "Home media server"
+  desc "Home media player"
   homepage "https://www.plex.tv/"
+
+  livecheck do
+    url "https://plex.tv/api/downloads/6.json"
+    regex(/"version"\s*:\s*"(\d(?:\.\d+)*-[a-f0-9]{8})"/i)
+  end
 
   auto_updates true
   depends_on macos: ">= :high_sierra"

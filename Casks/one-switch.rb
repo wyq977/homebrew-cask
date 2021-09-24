@@ -1,6 +1,6 @@
 cask "one-switch" do
-  version "1.18,295"
-  sha256 "9bf6846d80adc7bf45e21818210a0b8f8f7c369bb8cdb36668e876d3cdc9a768"
+  version "1.21.1,324"
+  sha256 "de71a497b276a319c13fc17f788ec9fe24a73a0d71e60cc218e2488888f7a357"
 
   url "https://fireball.studio/api/release_manager/downloads/studio.fireball.OneSwitch/#{version.after_comma}.zip"
   name "One Switch"

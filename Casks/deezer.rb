@@ -1,6 +1,6 @@
 cask "deezer" do
-  version "4.32.30"
-  sha256 "9f2390d522e0148d1032329a6166626d04c638558e373559ed7287d87959ad6e"
+  version "5.30.60"
+  sha256 "76c8687a7aebe39cd707810171e536f2400e74a7a8b582867afaab24c8e083f4"
 
   url "https://www.deezer.com/desktop/download/artifact/darwin/x64/#{version}"
   name "Deezer"
@@ -13,6 +13,7 @@ cask "deezer" do
   end
 
   auto_updates true
+  depends_on macos: ">= :yosemite"
 
   app "Deezer.app"
 
@@ -20,6 +21,7 @@ cask "deezer" do
     "~/Library/Application Support/Caches/deezer-desktop-updater",
     "~/Library/Application Support/deezer-desktop",
     "~/Library/Logs/Deezer",
+    "~/Library/Logs/deezer-desktop",
     "~/Library/Preferences/ByHost/com.deezer.*",
     "~/Library/Preferences/com.deezer.deezer-desktop.plist",
     "~/Library/Saved Application State/com.deezer.deezer-desktop.savedState",

@@ -1,10 +1,11 @@
 cask "the-battle-for-wesnoth" do
-  version "1.14.15a"
-  sha256 "d301ca19d27131256069994632e65c52199a602f4fcb8896eb0a7de3e550c4f7"
+  version "1.14.17"
+  sha256 "7ab1c7fbd5c691a7edec696d3cbb8a8271225a5687a6a050b71e5ceac1dd6d55"
 
   url "https://downloads.sourceforge.net/wesnoth/Wesnoth_#{version}.dmg",
       verified: "sourceforge.net/wesnoth/"
   name "The Battle for Wesnoth"
+  desc "Fantasy-themed turn-based strategy game"
   homepage "https://wesnoth.org/"
 
   livecheck do

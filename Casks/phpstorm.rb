@@ -1,20 +1,31 @@
 cask "phpstorm" do
-  version "2020.3.3"
+  version "2021.2.2,212.5284.49"
 
   if Hardware::CPU.intel?
-    sha256 "3c72eea3d7da78e9183d7f3e64de69bb577aeaabb0e595044837517545d5e1a4"
-    url "https://download.jetbrains.com/webide/PhpStorm-#{version}.dmg"
+    sha256 "1a5b835eade87ebdfb5c828d5708990594d28e88e4d71b983f2e544274c71b2d"
+
+    url "https://download.jetbrains.com/webide/PhpStorm-#{version.before_comma}.dmg"
   else
-    sha256 "b1be4b4dfc7362f47ecc88ab3916b9515960e72fa59c411c25b1186abf2f8b96"
-    url "https://download.jetbrains.com/webide/PhpStorm-#{version}-aarch64.dmg"
+    sha256 "2804ea007ccc596ad6d230825f504ac5624fd4852db9dc980db16ffed6024ce3"
+
+    url "https://download.jetbrains.com/webide/PhpStorm-#{version.before_comma}-aarch64.dmg"
   end
 
-  appcast "https://data.services.jetbrains.com/products/releases?code=PS&latest=true&type=release"
   name "JetBrains PhpStorm"
   desc "PHP IDE by JetBrains"
   homepage "https://www.jetbrains.com/phpstorm/"
 
+  livecheck do
+    url "https://data.services.jetbrains.com/products/releases?code=PS&latest=true&type=release"
+    strategy :page_match do |page|
+      JSON.parse(page)["PS"].map do |release|
+        "#{release["version"]},#{release["build"]}"
+      end
+    end
+  end
+
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "PhpStorm.app"
 
